@@ -1,4 +1,3 @@
-import { UserButton } from '@clerk/nextjs';
 import { BookOpenCheck, UsersRound, Waypoints } from 'lucide-react';
 import { CardSummary } from './components/CardSummary';
 
@@ -28,10 +27,9 @@ export default function Home() {
   ];
 
   return (
-    <main>
-      <UserButton />
+    <article>
       <h2>Dashboard</h2>
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-x-20">
+      <article className="md:grid-cols-2 lg:grid-cols-3 lg:gap-x-20 grid grid-cols-1 gap-3">
         {cardData.map(({ icon, total, average, title, tooltipText }) => (
           <CardSummary
             key={title}
@@ -42,8 +40,7 @@ export default function Home() {
             tooltipText={tooltipText}
           />
         ))}
-        <article>Card Summary</article>
-      </section>
-    </main>
+      </article>
+    </article>
   );
 }
