@@ -1,7 +1,7 @@
 import { Input, Sheet, SheetContent, SheetTrigger } from '@/components/ui';
 import { UserButton } from '@clerk/nextjs';
 import { Menu, Search } from 'lucide-react';
-import { SidebarRoutes } from '../SidebarRoutes';
+import { SidebarRoutes } from '@/components/SidebarRoutes';
 
 export const Navbar = () => {
   return (
