@@ -7,7 +7,7 @@ export const Logo = () => {
 
   return (
     <article
-      className="min-h-20 flex items-center gap-2 px-6 border-r cursor-pointer"
+      className="min-h-20 flex items-center gap-2 px-6 border-b cursor-pointer"
       onClick={() => router.push('/')}
     >
       <Image
