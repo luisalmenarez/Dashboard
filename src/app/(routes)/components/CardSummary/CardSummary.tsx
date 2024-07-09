@@ -14,15 +14,15 @@ export const CardSummary = (props: CardSummaryProps) => {
   const { average, icon: Icon, title, tooltipText, total } = props;
 
   return (
-    <section className="shadow-sm bg-background rounded-lg p-5 py-3 hover:shadow-lg transition hover:cursor-pointer">
-      <article className="flex justify-between">
+    <article className="shadow-sm bg-background rounded-lg p-5 py-3 hover:shadow-lg transition hover:cursor-pointer">
+      <div className="flex justify-between">
         <div className="flex gap-2 items-center">
           <CustomIcon icon={Icon} />
           {title}
         </div>
         <CustomTooltip content={tooltipText} />
-      </article>
-      <article className="flex gap-4 mt-2 md:mt-4">
+      </div>
+      <div className="flex gap-4 mt-2 md:mt-4">
         <p className="text-2xl">{total}</p>
         <div
           className={cn(
@@ -38,7 +38,7 @@ export const CardSummary = (props: CardSummaryProps) => {
             <TrendingUp strokeWidth={2} className="size-4" />
           )}
         </div>
-      </article>
-    </section>
+      </div>
+    </article>
   );
 };

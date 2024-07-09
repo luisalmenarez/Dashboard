@@ -1,5 +1,6 @@
 import { BookOpenCheck, UsersRound, Waypoints } from 'lucide-react';
-import { CardSummary } from './components/CardSummary';
+import { CardSummary } from '@/app/(routes)/components/CardSummary';
+import { LastCustomer } from '@/app/(routes)/components/LastCustomer';
 
 export default function Home() {
   const cardData = [
@@ -27,9 +28,9 @@ export default function Home() {
   ];
 
   return (
-    <article>
+    <>
       <h2>Dashboard</h2>
-      <article className="md:grid-cols-2 lg:grid-cols-3 lg:gap-x-20 grid grid-cols-1 gap-3">
+      <section className="md:grid-cols-2 lg:grid-cols-3 lg:gap-x-20 grid grid-cols-1 gap-3">
         {cardData.map(({ icon, total, average, title, tooltipText }) => (
           <CardSummary
             key={title}
@@ -40,7 +41,11 @@ export default function Home() {
             tooltipText={tooltipText}
           />
         ))}
-      </article>
-    </article>
+      </section>
+      <section className="grid grid-cols-1 xl:grid-cols-2 md:gap-x-10 mt-12">
+        <LastCustomer />
+        <p>Sales Distributors</p>
+      </section>
+    </>
   );
 }
