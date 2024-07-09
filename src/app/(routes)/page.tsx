@@ -1,6 +1,9 @@
 import { BookOpenCheck, UsersRound, Waypoints } from 'lucide-react';
-import { CardSummary } from '@/app/(routes)/components/CardSummary';
-import { LastCustomer } from '@/app/(routes)/components/LastCustomer';
+import {
+  LastCustomer,
+  Salesdistributors,
+  CardSummary,
+} from '@/app/(routes)/components/';
 
 export default function Home() {
   const cardData = [
@@ -44,7 +47,7 @@ export default function Home() {
       </section>
       <section className="grid grid-cols-1 xl:grid-cols-2 md:gap-x-10 mt-12">
         <LastCustomer />
-        <p>Sales Distributors</p>
+        <Salesdistributors />
       </section>
     </>
   );
