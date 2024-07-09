@@ -14,7 +14,7 @@ export const CardSummary = (props: CardSummaryProps) => {
   const { average, icon: Icon, title, tooltipText, total } = props;
 
   return (
-    <article className="shadow-sm bg-background rounded-lg p-5 py-3 hover:shadow-lg transition hover:cursor-pointer">
+    <article className="shadow-sm bg-background rounded-lg p-5 py-3 hover:shadow-xl transition-all duration-500 hover:cursor-pointer">
       <div className="flex justify-between">
         <div className="flex gap-2 items-center">
           <CustomIcon icon={Icon} />
