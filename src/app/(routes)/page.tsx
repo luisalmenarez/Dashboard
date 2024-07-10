@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <>
-      <h2>Dashboard</h2>
+      <h2 className="text-2xl font-medium mb-5">Dashboard</h2>
       <section className="md:grid-cols-2 lg:grid-cols-3 lg:gap-x-20 grid grid-cols-1 gap-3">
         {cardData.map(({ icon, total, average, title, tooltipText }) => (
           <CardSummary
@@ -47,12 +47,12 @@ export default function Home() {
           />
         ))}
       </section>
-      <section className="grid grid-cols-1 xl:grid-cols-2 md:gap-x-10 mt-12">
+      <section className="grid grid-cols-1 xl:grid-cols-2 md:gap-x-10 gap-y-4 mt-12">
         <LastCustomer />
         <Salesdistributors />
       </section>
 
-      <section className="flex-col xl:flex xl:flex-row gap-y-4 md:gap-y-0 mt-12 md:mb-10 justify-center">
+      <section className="flex flex-col xl:flex xl:flex-row gap-y-4 md:gap-x-5 mt-12 md:mb-10 justify-center">
         <TotalSubscribers />
         <ListIntegrations />
       </section>
