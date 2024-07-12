@@ -18,6 +18,7 @@ datasource db {
 model Company {
   id String @id @default(uuid())
   userId String @db.Text
+  name String
   description String? @db.Text
   profileImage String @db.Text
   cif String @db.Text

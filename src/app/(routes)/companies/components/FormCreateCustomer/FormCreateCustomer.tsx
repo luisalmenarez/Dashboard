@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import axios from 'axios';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -22,6 +23,7 @@ import { FormCreateCustomerProps } from './FormCreateCustomer.types';
 import { Select, SelectTrigger, SelectValue } from '@/components/ui';
 import { UploadButton } from '@/utils/uploadthing';
 import { toast } from '@/components/ui/use-toast';
+import { useRouter } from 'next/navigation';
 
 const formSchema = z.object({
   name: z.string(),
@@ -35,6 +37,7 @@ const formSchema = z.object({
 export const FormCreateCustomer = (props: FormCreateCustomerProps) => {
   const { setOpenModalCreate } = props;
   const [photoUploaded, setPhotoUploaded] = useState(false);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -52,7 +55,17 @@ export const FormCreateCustomer = (props: FormCreateCustomerProps) => {
 
   // 2. Define a submit handler.
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    try {
+      axios.post('/api/company', values);
+      toast({ title: 'Company created' });
+      router.refresh();
+      setOpenModalCreate(false);
+    } catch (error) {
+      toast({
+        title: 'Something went wrong.',
+        variant: 'destructive',
+      });
+    }
   };
 
   return (
@@ -85,8 +98,7 @@ export const FormCreateCustomer = (props: FormCreateCustomerProps) => {
                   <FormLabel>Country</FormLabel>
                   <Select
                     onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
+                    defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select the country" />
