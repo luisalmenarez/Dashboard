@@ -14,9 +14,9 @@ export default function LayoutDashboard({
 
       <section className="xl:ml-80 w-full">
         <Navbar />
-        <article className="p-6 bg-[#fafbfc] dark:bg-secondary">
+        <section className="p-6 bg-[#fafbfc] dark:bg-secondary">
           {children}
-        </article>
+        </section>
       </section>
     </main>
   );

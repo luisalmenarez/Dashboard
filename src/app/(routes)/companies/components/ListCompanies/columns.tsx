@@ -38,7 +38,8 @@ export const columns: ColumnDef<Company>[] = [
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
           Company name
           <ArrowUpDown className="ml-2 size-4" />
         </Button>
@@ -76,7 +77,7 @@ export const columns: ColumnDef<Company>[] = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <Link href={`/company/${id}`}>
+            <Link href={`/companies/${id}`}>
               <DropdownMenuItem>
                 <Pencil className="size-4 mr-2" />
                 Edit
