@@ -1,11 +1,11 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 import {
   Button,
@@ -25,9 +25,8 @@ import {
   toast,
 } from '@/components/ui';
 import { UploadButton } from '@/utils/uploadthing';
-import { CompanyFormProps } from './CompanyForm.types';
 import { formSchema } from './CompanyForm.form';
-import { error } from 'console';
+import { CompanyFormProps } from './CompanyForm.types';
 
 export const CompanyForm = (props: CompanyFormProps) => {
   const { company } = props;
