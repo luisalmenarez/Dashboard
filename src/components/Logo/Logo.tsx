@@ -11,7 +11,7 @@ export const Logo = () => {
       onClick={() => router.push('/')}
     >
       <Image
-        src="logo.svg"
+        src="/logo.svg"
         alt="Logo Dashboard"
         width={30}
         height={30}

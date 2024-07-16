@@ -9,4 +9,8 @@ export * from './select';
 export * from './separator';
 export * from './sheet';
 export * from './table';
+export * from './textarea';
+export * from './toast';
+export * from './toaster';
 export * from './tooltip';
+export * from './use-toast';
