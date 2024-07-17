@@ -10,6 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui';
+import { FormConctact } from './FormContact';
 
 export const NewContact = () => {
   const [open, setOpen] = useState(false);
@@ -26,7 +27,7 @@ export const NewContact = () => {
             Create your contacts to manage them later.
           </DialogDescription>
         </DialogHeader>
-        <p>Form Contact</p>
+        <FormConctact setOpen={setOpen} />
       </DialogContent>
     </Dialog>
   );
