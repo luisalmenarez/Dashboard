@@ -116,11 +116,11 @@ export const FormConctact = (props: FormContactProps) => {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="comercial">Comercial</SelectItem>
+                  <SelectItem value="Comercial">Comercial</SelectItem>
                   <SelectItem value="CEO">CEO</SelectItem>
-                  <SelectItem value="quality">Customer Service</SelectItem>
-                  <SelectItem value="analytics">Analytics</SelectItem>
-                  <SelectItem value="other">Oher...</SelectItem>
+                  <SelectItem value="Quality">Customer Service</SelectItem>
+                  <SelectItem value="Analytics">Analytics</SelectItem>
+                  <SelectItem value="Other">Oher...</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
