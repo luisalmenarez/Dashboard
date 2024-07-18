@@ -62,7 +62,7 @@ export function DataTable<TData, TValue>({
   if (!isMounted) return null;
 
   return (
-    <div className="p-4 bg-background shadow-md rounded-lg mt-4">
+    <div className="p-4 bg-background shadow-lg rounded-lg mt-4">
       <div className="flex items-center mb-2">
         <Input
           placeholder="Filter the company..."
@@ -92,12 +92,13 @@ export function DataTable<TData, TValue>({
               </TableRow>
             ))}
           </TableHeader>
-          <TableBody>
+          <TableBody className="transition-all duration-500">
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && 'selected'}>
+                  data-state={row.getIsSelected() && 'selected'}
+                >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
                       {flexRender(
@@ -112,7 +113,8 @@ export function DataTable<TData, TValue>({
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center">
+                  className="h-24 text-center"
+                >
                   No results
                 </TableCell>
               </TableRow>
@@ -125,14 +127,16 @@ export function DataTable<TData, TValue>({
           variant="outline"
           size="sm"
           onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}>
+          disabled={!table.getCanPreviousPage()}
+        >
           Previous
         </Button>
         <Button
           variant="outline"
           size="sm"
           onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}>
+          disabled={!table.getCanNextPage()}
+        >
           Next
         </Button>
       </div>
