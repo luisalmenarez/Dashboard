@@ -21,6 +21,7 @@ import {
   SelectValue,
 } from '@/components/ui';
 import { FormEventProps } from './FormEvent.types';
+import Image from 'next/image';
 
 const formSchema = z.object({
   eventName: z.string().min(2),
@@ -107,7 +108,16 @@ export const FormEvent = (props: FormEventProps) => {
                 <SelectContent>
                   {companies.map((companie) => (
                     <SelectItem key={companie.id} value={companie.name}>
-                      {companie.name}
+                      <div className="flex gap-x-2">
+                        <Image
+                          src={companie.profileImage}
+                          width={5}
+                          height={5}
+                          alt={`Logo companie ${companie.name}`}
+                          className="object-cover size-5"
+                        />
+                        {companie.name}
+                      </div>
                     </SelectItem>
                   ))}
                 </SelectContent>

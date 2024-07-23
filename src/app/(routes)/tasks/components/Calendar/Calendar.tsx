@@ -14,6 +14,7 @@ import { formatDate } from '@/lib/formatDate';
 import { CalendarProps } from './Calendar.types';
 import { toast } from '@/components/ui';
 import { ModalAddEvent } from '../ModalAddEvent';
+import { ConfirmDialog } from '../ConfirmDialog';
 
 export const Calendar = (props: CalendarProps) => {
   const { companies, events } = props;
@@ -28,6 +29,8 @@ export const Calendar = (props: CalendarProps) => {
       id: '',
     },
   });
+  const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
+  const [eventToDelete, setEventToDelete] = useState<any>(null);
 
   const handleDateClick = async (selected: DateSelectArg) => {
     setOpen(true);
@@ -75,13 +78,14 @@ export const Calendar = (props: CalendarProps) => {
   }, [onSaveNewEvent, selectedItem, event]);
 
   const handleEventClick = async (selected: any) => {
-    if (
-      window.confirm(
-        `Are you sure  you want to delete this event ${selected.event.title}`
-      )
-    ) {
+    setEventToDelete(selected.event);
+    setConfirmDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (eventToDelete) {
       try {
-        axios.delete(`/api/event/${selected.event._def.publicId}`);
+        await axios.delete(`/api/event/${eventToDelete._def.publicId}`);
         toast({
           title: 'Event Deleted',
         });
@@ -91,6 +95,9 @@ export const Calendar = (props: CalendarProps) => {
           title: 'Something went wrong',
           variant: 'destructive',
         });
+      } finally {
+        setConfirmDialogOpen(false);
+        setEventToDelete(null);
       }
     }
   };
@@ -146,6 +153,12 @@ export const Calendar = (props: CalendarProps) => {
         setOnSaveNewEvent={setOnSaveNewEvent}
         companies={companies}
         setNewEvent={setNewEvent}
+      />
+      <ConfirmDialog
+        isOpen={confirmDialogOpen}
+        onConfirm={handleConfirmDelete}
+        onCancel={() => setConfirmDialogOpen(false)}
+        eventTitle={eventToDelete?.title || ''}
       />
     </section>
   );

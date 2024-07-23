@@ -25,8 +25,6 @@ export default async function TasksPage() {
     },
   });
 
-  console.log(events);
-
   return (
     <section>
       <Calendar companies={companies} events={events} />
