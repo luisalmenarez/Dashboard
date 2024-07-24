@@ -49,7 +49,7 @@ export const SidebarRoutes = () => {
         <Separator />
 
         <footer className="p-3 mt-3 text-center">
-          2024 All rights reseveded
+          2024 All rights reserved
         </footer>
       </article>
     </aside>
