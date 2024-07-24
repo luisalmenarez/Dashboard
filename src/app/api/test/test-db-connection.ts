@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export default async function handler(req, res) {
+export async function GET(req: Request, res: Response): Promise<Response> {
   try {
     console.log('Testing database connection...');
     const result = await prisma.$queryRaw`SELECT 1 + 1 AS result`;
@@ -11,12 +11,18 @@ export default async function handler(req, res) {
     const companies = await prisma.company.findMany({ take: 5 });
     console.log('Successfully retrieved companies:', companies);
 
-    res.status(200).json({ success: true, result, companies });
-  } catch (error) {
+    return new Response(JSON.stringify({ success: true, result, companies }), {
+      status: 200,
+    });
+  } catch (error: any) {
     console.error('Connection failed:', error);
-    res
-      .status(500)
-      .json({ error: 'Failed to connect to database', details: error.message });
+    return new Response(
+      JSON.stringify({
+        error: 'Failed to connect to database',
+        details: error.message,
+      }),
+      { status: 500 }
+    );
   } finally {
     await prisma.$disconnect();
   }
